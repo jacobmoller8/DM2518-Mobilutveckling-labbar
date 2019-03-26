@@ -18,8 +18,7 @@ class Lab1Screen extends Component {
         super(props)
 
         this.state = {
-            map: '',
-            mapType: 'hybrid'
+            map: ''
         }
     }
 
@@ -35,38 +34,39 @@ class Lab1Screen extends Component {
     initMap = () => {
         var newMap = new window.google.maps.Map(document.getElementById('map'), {
             center: { lat: 59.3498092, lng: 18.0684758 },
-            zoom: 15,
-            mapTypeId: this.state.mapType
+            zoom: 10,
+            mapTypeId: 'satellite',
+            disableDefaultUI: true
         });
         this.setState({ map: newMap })
     }
 
     onMaptypeClick = (mapType) => {
-        if (mapType === "satellite") {
-            this.setState({
-                mapType: 'satellite'
-            }, () => this.initMap())
-        } else if (mapType === "terrain") {
-            this.setState({
-                mapType: 'terrain'
-            }, () => this.initMap())
-        } else if (mapType === "roadmap") {
-            this.setState({
-                mapType: 'roadmap'
-            }, () => this.initMap())
-        } else {
-            this.setState({
-                mapType: 'hybrid'
-            }, () => this.initMap())
-        }
+        this.state.map.setMapTypeId(mapType)
+    }
+
+    onZoomClick = (zoom) => {
+        let prevZoom = this.state.map.getZoom()
+        let newZoom = prevZoom + zoom
+        this.state.map.setZoom(newZoom)
+
     }
 
 
+    onTiltClick = () => {
+        let tiltState = this.state.map.getTilt()
+        if (tiltState === 45) {
+            this.state.map.setTilt(0)
+        } else {
+            this.state.map.setTilt(45)
+        } 
+    }
+
     render() {
-        
+
         return (
             <span>
-                <Map onMaptypeClick={this.onMaptypeClick} />
+                <Map onMaptypeClick={this.onMaptypeClick} onTiltClick={this.onTiltClick} onZoomClick={this.onZoomClick}/>
             </span>
         )
     }
