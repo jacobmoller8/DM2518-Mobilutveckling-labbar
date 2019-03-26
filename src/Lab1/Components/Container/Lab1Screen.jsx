@@ -18,7 +18,8 @@ class Lab1Screen extends Component {
         super(props)
 
         this.state = {
-            map: ''
+            map: '',
+            tiltVisibility: false
         }
     }
 
@@ -48,6 +49,19 @@ class Lab1Screen extends Component {
     onZoomClick = (zoom) => {
         let prevZoom = this.state.map.getZoom()
         let newZoom = prevZoom + zoom
+        // Max zoom out
+        if (newZoom===1){
+            newZoom = 2
+        }
+        if (newZoom >= 18){
+            this.setState({
+                tiltVisibility: true
+            })
+        }else{
+            this.setState({
+                tiltVisibility: false
+            })
+        }
         this.state.map.setZoom(newZoom)
 
     }
@@ -66,7 +80,7 @@ class Lab1Screen extends Component {
 
         return (
             <span>
-                <Map onMaptypeClick={this.onMaptypeClick} onTiltClick={this.onTiltClick} onZoomClick={this.onZoomClick}/>
+                <Map onMaptypeClick={this.onMaptypeClick} onTiltClick={this.onTiltClick} tiltVisibility={this.state.tiltVisibility} onZoomClick={this.onZoomClick}/>
             </span>
         )
     }
