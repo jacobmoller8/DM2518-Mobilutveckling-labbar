@@ -8,7 +8,10 @@ export default class Map extends Component {
         return (
             <div className="container-fluid col-12">
                 <div className="container-fluid header">
-                    <h3 id="headerTitle"> Our cool map</h3>
+                    <div className="row justify-content-center">
+                        <h3 id="headerTitle"> Our cool map</h3>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onTiltClick()}> Tilt Map</Button>
+                    </div>
                 </div>
                 <div className="mapContainer">
                     <div id="map"></div>
@@ -19,6 +22,8 @@ export default class Map extends Component {
                         <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('hybrid')}>Hybrid</Button>
                         <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('roadmap')}>Roadmap</Button>
                         <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('terrain')}>Terrain</Button>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onZoomClick(1)}>+</Button>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onZoomClick(-1)}>-</Button>
                     </div>
                 </div>
             </div>
