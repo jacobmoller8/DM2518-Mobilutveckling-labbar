@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { withRouter } from "react-router-dom";
 import Map from '../Presentational/Map/map'
 
+
 function loadScript(url) {
     var index = window.document.getElementsByTagName("script")[0]
     var script = window.document.createElement(
@@ -19,7 +20,8 @@ class Lab1Screen extends Component {
 
         this.state = {
             map: '',
-            tiltVisibility: false
+            tiltVisibility: false,
+            markers: []
         }
     }
 
@@ -33,13 +35,52 @@ class Lab1Screen extends Component {
     }
 
     initMap = () => {
+        let kthCoords = { lat: 59.3498092, lng: 18.0684758 }
+
         var newMap = new window.google.maps.Map(document.getElementById('map'), {
-            center: { lat: 59.3498092, lng: 18.0684758 },
+            center: kthCoords,
             zoom: 10,
             mapTypeId: 'satellite',
             disableDefaultUI: true
         });
+        
         this.setState({ map: newMap })
+    }
+
+    onAddMarkerClick = (drag, animate) => {
+        let center = this.state.map.getCenter();
+        let withAnimation = ''
+        if (animate === 'drop'){
+            withAnimation = window.google.maps.Animation.DROP
+        }else{
+            withAnimation = window.google.maps.Animation.BOUNCE
+        }
+
+        var marker = new window.google.maps.Marker({
+            map: this.state.map,
+            draggable: drag,
+            animation: withAnimation,
+            position: center
+          });
+
+          marker.addListener('click', toggleBounce);
+
+          function toggleBounce ()  {
+            if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+            } else {
+                marker.setAnimation(window.google.maps.Animation.BOUNCE);
+            }
+          }
+
+          this.setState({markers: [...this.state.markers, marker]})
+    }
+
+    onRemoveMarkerClick = () => {
+        if (this.state.markers.length > 0){
+        let latestPin = this.state.markers.pop()
+        latestPin.setMap(null)
+        }
     }
 
     onMaptypeClick = (mapType) => {
@@ -80,7 +121,13 @@ class Lab1Screen extends Component {
 
         return (
             <span>
-                <Map onMaptypeClick={this.onMaptypeClick} onTiltClick={this.onTiltClick} tiltVisibility={this.state.tiltVisibility} onZoomClick={this.onZoomClick}/>
+                <Map 
+                onMaptypeClick={this.onMaptypeClick} 
+                onTiltClick={this.onTiltClick} 
+                tiltVisibility={this.state.tiltVisibility} 
+                onZoomClick={this.onZoomClick}
+                onAddMarkerClick={this.onAddMarkerClick}
+                onRemoveMarkerClick={this.onRemoveMarkerClick}/>
             </span>
         )
     }

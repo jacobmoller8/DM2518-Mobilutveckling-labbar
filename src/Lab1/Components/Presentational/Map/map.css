@@ -1,5 +1,5 @@
 #map {
-    height: 100%;
+    height: 50vh;
   }
   /* Optional: Makes the sample page fill the window. */
   html, body {
@@ -10,12 +10,13 @@
   }
 
     .btnRowTitle{
-    margin-top: auto;   
+    margin-top: auto;  
+    margin-right: 10px; 
 }
 
   .mapContainer{
       width: 100%;
-      height: 500px;
+      height: 50vh;
   }
 
   .mapWrapper{
@@ -32,11 +33,14 @@
   #headerTitle{
       font-size: 50px;
   }
+  .addMarkerBtn{
+    border-radius: 50%;
+  }
+
 
   .mapTypeBtn{
       background-color: white;
       color: black;
-      margin: 10px;
   }
 
   .zoomBtn{
@@ -69,7 +73,6 @@
 }
 
   .tiltBtn:disabled{
-    float: right;
     background-color: transparent;
     color: black;
     border-color: orange;
@@ -89,3 +92,6 @@
   .mapTypeBtnContainer{
     display: block;
   }
+  
+
+

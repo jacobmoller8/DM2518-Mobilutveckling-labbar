@@ -25,20 +25,35 @@ export default class Map extends Component {
                 </div>
                 <div className="container-fluid col-sm-12 col-md-10 col-lg-8 btnContainer">
                     <div className="row">
-                    <h5 className="btnRowTitle ">Map type buttons: </h5>
-                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('satellite')}>Satellite</Button>
-                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('hybrid')}>Hybrid</Button>
-                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('roadmap')}>Roadmap</Button>
-                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('terrain')}>Terrain</Button>
+                        <div className="container-fluid btnRowContainer">
+                            <h5 className="btnRowTitle ">Map type buttons: </h5>
+                            <Button className="mapTypeBtn col-3" onClick={() => this.props.onMaptypeClick('satellite')}>Satellite</Button>
+                            <Button className="mapTypeBtn col-3" onClick={() => this.props.onMaptypeClick('hybrid')}>Hybrid</Button>
+                            <Button className="mapTypeBtn col-3" onClick={() => this.props.onMaptypeClick('roadmap')}>Roadmap</Button>
+                            <Button className="mapTypeBtn col-3" onClick={() => this.props.onMaptypeClick('terrain')}>Terrain</Button>
+                        </div>
                     </div>
                     <div className="row">
-                    <h5 className="btnRowTitle">Zoom buttons: </h5>
-                        <Button className="zoomBtn" onClick={() => this.props.onZoomClick(1)}>+</Button>
-                        <Button className="zoomBtn" onClick={() => this.props.onZoomClick(-1)}>-</Button>
+
+                        <div className="container-fluid btnRowContainer col-6">
+                            <h5 className="btnRowTitle">Zoom buttons: </h5>
+                            <Button className="zoomBtn" onClick={() => this.props.onZoomClick(1)}>+</Button>
+                            <Button className="zoomBtn" onClick={() => this.props.onZoomClick(-1)}>-</Button>
+                        </div>
+                        <div className="container-fluid btnRowContainer col-6">
+                            <h5 className="btnRowTitle">Function buttons: </h5>
+                            {tiltBtn}
+                        </div>
                     </div>
                     <div className="row">
-                    <h5 className="btnRowTitle">Function buttons: </h5>
-                        {tiltBtn}
+
+                        <div className="container-fluid btnRowContainer">
+                            <h5 className="btnRowTitle">Pin buttons: </h5>
+                            <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(true, 'drop')}>Add Drop Pin</Button>
+                            <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(true, 'bounce')}>Add Bounce Pin</Button>
+                            <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(false, 'drop')}>Add Stuck Pin</Button>
+                            <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onRemoveMarkerClick()}>Remove Pin</Button>
+                        </div>
                     </div>
                 </div>
             </div>
