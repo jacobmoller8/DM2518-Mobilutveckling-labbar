@@ -5,7 +5,9 @@ import { withRouter } from "react-router-dom";
 class MainScreen extends Component {
 
     render() {
-        <p>Hej</p>
+        return (
+            <p>Hej</p>
+        )
     }
 }
 

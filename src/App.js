@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
+
+import MainScreen from "./MainScreen/MainScreen";
+import Lab1Screen from "./Lab1/Components/Container/Lab1Screen";
 
 class App extends Component {
   constructor(props) {
