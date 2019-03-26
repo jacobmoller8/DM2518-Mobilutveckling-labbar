@@ -13,13 +13,13 @@ export default class Map extends Component {
                 <div className="mapContainer">
                     <div id="map"></div>
                 </div>
-                <div className="container-fluid col-8 mapTypeBtnContainer">
-                <div class="row justify-content-center">
-                    <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('satellite')}>Satellite</Button>
-                    <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('hybrid')}>hybrid</Button>
-                    <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('roadmap')}>roadmap</Button>
-                    <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('terrain')}>terrain</Button>
-                </div>
+                <div className="container-fluid col-12 col-md-8  mapTypeBtnContainer">
+                    <div className="row justify-content-center">
+                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('satellite')}>Satellite</Button>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('hybrid')}>Hybrid</Button>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('roadmap')}>Roadmap</Button>
+                        <Button className="mapTypeBtn" onClick={() => this.props.onMaptypeClick('terrain')}>Terrain</Button>
+                    </div>
                 </div>
             </div>
         )

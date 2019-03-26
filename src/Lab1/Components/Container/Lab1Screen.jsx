@@ -45,7 +45,6 @@ class Lab1Screen extends Component {
         if (mapType === "satellite") {
             this.setState({
                 mapType: 'satellite'
-            
             }, () => this.initMap())
         } else if (mapType === "terrain") {
             this.setState({
