@@ -33,7 +33,7 @@ class Lab1Screen extends Component {
     }
 
     initMap = () => {
-        let newMap = new window.google.maps.Map(document.getElementById('map'), {
+        var newMap = new window.google.maps.Map(document.getElementById('map'), {
             center: { lat: 59.3498092, lng: 18.0684758 },
             zoom: 15,
             mapTypeId: this.state.mapType
@@ -46,25 +46,25 @@ class Lab1Screen extends Component {
             this.setState({
                 mapType: 'satellite'
             
-            })
+            }, () => this.initMap())
         } else if (mapType === "terrain") {
             this.setState({
                 mapType: 'terrain'
-            })
+            }, () => this.initMap())
         } else if (mapType === "roadmap") {
             this.setState({
                 mapType: 'roadmap'
-            })
+            }, () => this.initMap())
         } else {
             this.setState({
                 mapType: 'hybrid'
-            })
+            }, () => this.initMap())
         }
-        this.initMap()
     }
 
 
     render() {
+        
         return (
             <span>
                 <Map onMaptypeClick={this.onMaptypeClick} />
