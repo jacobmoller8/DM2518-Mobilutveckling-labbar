@@ -24,3 +24,13 @@
       font-size: 50px;
       font-family: 'Roboto', Courier, monospace;
   }
+
+  .mapTypeBtn{
+      background-color: white;
+      color: black;
+      margin: 10px;
+  }
+
+  .mapTypeBtnContainer{
+    display: block;
+  }
