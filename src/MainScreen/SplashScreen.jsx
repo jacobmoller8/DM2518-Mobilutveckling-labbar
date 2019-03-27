@@ -12,7 +12,7 @@ class SplashScreen extends Component {
                 <div className="container">
                     <div className="row justify-content-md-center">
                         <div className="col" align="center">
-                            <div class="lds-dual-ring"></div>
+                            <div className="lds-dual-ring"></div>
                         </div>
                     </div>
                 </div>
