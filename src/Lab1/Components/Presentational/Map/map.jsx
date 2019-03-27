@@ -57,11 +57,24 @@ export default class Map extends Component {
                     <div className="row">
                         <div className="container-fluid btnRowContainer">
                             <h5 className="btnRowTitle">Location buttons: </h5>
-                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onGetLocationClick()}>Current Location</Button>
-                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Hugo")}>Hugos Favorite</Button>
-                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Jacob")}>Jacobs Favorite</Button>
-                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Björn")}>Björns Favorite</Button>
-
+                            <div className="row">
+                                <div className="container-fluid col-3 locationCont">
+                                    <Button size="sm" className="locationBtn" onClick={() => this.props.onGetLocationClick()}>Current Location</Button>
+                                    <p>Click to show your current location on the map!</p>
+                                </div>
+                                <div className="container-fluid col-3 locationCont">
+                                    <Button size="sm" className="locationBtn" onClick={() => this.props.onSetLocationClick("Hugo")}>Hugos Favorite</Button>
+                                    <p>Click here to travel to Copenhagen, city of Rød pølse and beer</p>
+                                </div>
+                                <div className="container-fluid col-3 locationCont">
+                                    <Button size="sm" className="locationBtn" onClick={() => this.props.onSetLocationClick("Jacob")}>Jacobs Favorite</Button>
+                                    <p>Click here to travel to the place where Jacob will spend next fall</p>
+                                </div>
+                                <div className="container-fluid col-3 locationCont">
+                                    <Button size="sm" className="locationBtn" onClick={() => this.props.onSetLocationClick("Björn")}>Björns Favorite</Button>
+                                    <p>Click here to travel to the place which Björn gladly escapes to</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
