@@ -3,10 +3,28 @@ import { withRouter, Link } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 
 import "./MainScreen.css"
+import SplashScreen from "./SplashScreen";
 
 class MainScreen extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+        };
+    }
+
+    componentDidMount = () => {
+        setTimeout(() => {
+            this.setState({
+                loading: false
+            })
+        }, 1500)
+    }
 
     render() {
+
+        if (this.state.loading) return (<SplashScreen></SplashScreen>)
+
         return (
             <React.Fragment>
                 <div className="container">
@@ -20,22 +38,22 @@ class MainScreen extends Component {
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/Lab1Screen">
+                                <Link to="/">
                                     <Button className="Btn"> View Lab 2 </Button>
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/Lab1Screen">
+                                <Link to="/">
                                     <Button className="Btn"> View Lab 3 </Button>
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/Lab1Screen">
+                                <Link to="/">
                                     <Button className="Btn"> View Lab 4 </Button>
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/Lab1Screen">
+                                <Link to="/">
                                     <Button className="Btn"> View Lab 5 </Button>
                                 </Link>
                             </div>
