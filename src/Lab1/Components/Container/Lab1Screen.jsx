@@ -18,6 +18,8 @@ class Lab1Screen extends Component {
     constructor(props) {
         super(props)
 
+        this.setLocation = this.setLocation.bind(this)
+
         this.state = {
             map: '',
             tiltVisibility: false,
@@ -117,6 +119,39 @@ class Lab1Screen extends Component {
         } 
     }
 
+    onGetLocationClick = () => {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(this.setLocation);
+          } else {
+            alert("Geolocation is not supported by this browser.")
+          }
+    }
+
+    onSetLocationClick = (person) => {
+        const hugoCoords = {coords: {latitude: 55.676098, longitude: 12.568337}}
+        const jacobCoords = {coords: {latitude: 1.352083, longitude: 103.819839}}
+        const bjornCoords = {coords: {latitude: -8.340539, longitude: 115.091949}}
+
+        if(person === 'Björn'){
+            this.setLocation(bjornCoords)
+        }else if(person === 'Jacob'){
+            this.setLocation(jacobCoords)
+        }else{
+            this.setLocation(hugoCoords)
+        }
+    
+        this.state.map.setZoom(12)
+        this.state.map.setMapTypeId('hybrid')
+
+    }
+
+    setLocation = (pos) => {
+        let newLat = pos.coords.latitude;
+        let newLong = pos.coords.longitude;
+        let newCoords = {lat: newLat, lng: newLong}
+        this.state.map.setCenter(newCoords)
+    }
+
     render() {
 
         return (
@@ -127,7 +162,9 @@ class Lab1Screen extends Component {
                 tiltVisibility={this.state.tiltVisibility} 
                 onZoomClick={this.onZoomClick}
                 onAddMarkerClick={this.onAddMarkerClick}
-                onRemoveMarkerClick={this.onRemoveMarkerClick}/>
+                onRemoveMarkerClick={this.onRemoveMarkerClick}
+                onGetLocationClick={this.onGetLocationClick}
+                onSetLocationClick={this.onSetLocationClick}/>
             </span>
         )
     }

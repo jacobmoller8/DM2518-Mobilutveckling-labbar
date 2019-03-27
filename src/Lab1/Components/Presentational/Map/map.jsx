@@ -46,13 +46,22 @@ export default class Map extends Component {
                         </div>
                     </div>
                     <div className="row">
-
                         <div className="container-fluid btnRowContainer">
                             <h5 className="btnRowTitle">Pin buttons: </h5>
                             <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(true, 'drop')}>Add Drop Pin</Button>
                             <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(true, 'bounce')}>Add Bounce Pin</Button>
                             <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onAddMarkerClick(false, 'drop')}>Add Stuck Pin</Button>
                             <Button size="sm" className="markerBtn col-3" onClick={() => this.props.onRemoveMarkerClick()}>Remove Pin</Button>
+                        </div>
+                    </div>
+                    <div className="row">
+                        <div className="container-fluid btnRowContainer">
+                            <h5 className="btnRowTitle">Location buttons: </h5>
+                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onGetLocationClick()}>Current Location</Button>
+                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Hugo")}>Hugos Favorite</Button>
+                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Jacob")}>Jacobs Favorite</Button>
+                            <Button size="sm" className="locationBtn col-3" onClick={() => this.props.onSetLocationClick("Björn")}>Björns Favorite</Button>
+
                         </div>
                     </div>
                 </div>
