@@ -1,20 +1,48 @@
 import React, { Component } from 'react'
 import { withRouter, Link } from "react-router-dom";
+import { Button } from 'react-bootstrap';
 
-
+import "./MainScreen.css"
 
 class MainScreen extends Component {
 
     render() {
         return (
             <React.Fragment>
-                <p>Hej</p>
-                <Link to="/Lab1Screen">
-                    <button type="button">
-                        View Lab 1
-                </button>
-                </Link>
-            </React.Fragment>
+                <div className="container">
+                    <div className="row justify-content-md-center">
+                        <div className="col" align="center">
+                            <h1>DM2518 Labs</h1>
+                            <h5>Hugo Bergqvist & Jacob Möller & Björn Andersson</h5>
+                            <div>
+                                <Link to="/Lab1Screen">
+                                    <Button className="Btn"> View Lab 1 </Button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/Lab1Screen">
+                                    <Button className="Btn"> View Lab 2 </Button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/Lab1Screen">
+                                    <Button className="Btn"> View Lab 3 </Button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/Lab1Screen">
+                                    <Button className="Btn"> View Lab 4 </Button>
+                                </Link>
+                            </div>
+                            <div>
+                                <Link to="/Lab1Screen">
+                                    <Button className="Btn"> View Lab 5 </Button>
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </React.Fragment >
         )
     }
 }
