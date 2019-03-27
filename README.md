@@ -5,17 +5,17 @@ Jacob Möller & Björn Andersson & Hugo Bergqvist
 
 ### TODO
 
-- Custom controls zooming
+- Custom controls zooming (DONE)
 - Custom controls panning
-- 45 degree tilt version
-- Investigate map animations (like drop and bounce) & draggable markers
+- 45 degree tilt version (DONE)
+- Investigate map animations (like drop and bounce) & draggable markers (DONE)
 
-- Custom icon
-- start-up screen
-- hiding adress bar
+- Custom icon (DONE)
+- start-up screen (DONE)
+- hiding adress bar 
 
-- Setup markers with information
+- Setup markers with information (Buttons take you places but not marking yet)
 - Custom markers
-- Get current position
+- Get current position (DONE)
 
 

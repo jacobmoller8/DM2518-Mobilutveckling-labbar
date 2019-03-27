@@ -5,9 +5,7 @@ import Map from '../Presentational/Map/map'
 
 function loadScript(url) {
     var index = window.document.getElementsByTagName("script")[0]
-    var script = window.document.createElement(
-        "script"
-    )
+    var script = window.document.createElement("script")
     script.src = url
     script.async = true
     script.defer = true
@@ -74,7 +72,7 @@ class Lab1Screen extends Component {
                 marker.setAnimation(window.google.maps.Animation.BOUNCE);
             }
           }
-
+        // maybe this.state.markers.push(marker) would be better instead of new copy
           this.setState({markers: [...this.state.markers, marker]})
     }
 
