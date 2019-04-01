@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom";
-import { Page, Toolbar } from 'react-onsenui';
+import { Page, Toolbar, Button } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
+import ProductScreen from "./ProductScreen";
+
 class ListTabScreen extends Component {
+
+    pushPage = () => {
+        this.props.navigator.pushPage({
+            component: ProductScreen
+        });
+    }
 
     render() {
 
@@ -16,7 +24,7 @@ class ListTabScreen extends Component {
                         List Page
                   </div>
                 </Toolbar>}>
-                <p>Hej</p>
+                <Button onClick={this.pushPage}>Product Page</Button>
             </Page>
         )
     }

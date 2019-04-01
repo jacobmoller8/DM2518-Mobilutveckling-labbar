@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 
 import MainScreen from "./MainScreen/MainScreen";
 import Lab1Screen from "./Lab1/Components/Container/Lab1Screen";
-import Lab2Screen from "./Lab2/Navigation/Lab2MainScreen";
+import Lab2StackNavigator from "./Lab2/Navigation/Lab2StackNavigator";
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +18,7 @@ class App extends Component {
         <header className="App-header">
           <Route exact path="/" render={() => <MainScreen />} />
           <Route path="/Lab1Screen" render={() => <Lab1Screen />} />
-          <Route path="/Lab2MainScreen" render={() => <Lab2Screen />} />
+          <Route path="/Lab2StackNavigator" render={() => <Lab2StackNavigator />} />
         </header>
       </div>
     );
