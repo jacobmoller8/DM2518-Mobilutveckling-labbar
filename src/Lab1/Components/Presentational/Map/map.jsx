@@ -34,9 +34,9 @@ export default class Map extends Component {
 						</div>
 						<h5 className="btnRowTitle">Navigation: </h5>
 						<div className="container-fluid col-12 navBtns">
-							<div className="row navRow"><Button className="upBtn" onClick={() => this.props.onNavClick('up')}>U</Button></div>
-							<div className="row navRow"><Button className="leftBtn" onClick={() => this.props.onNavClick('left')}>L</Button><Button className="rightBtn" onClick={() => this.props.onNavClick('right')}>R</Button></div>
-							<div className="row navRow"><Button className="downBtn" onClick={() => this.props.onNavClick('down')}>D</Button></div>
+							<div className="row navRow"><Button className="upBtn" onClick={() => this.props.onNavClick('up')}><img className="navIcon" src={require('../../../../Images/Icons/upArrow.svg')} alt="upArrow"></img></Button></div>
+							<div className="row navRow"><Button className="leftBtn" onClick={() => this.props.onNavClick('left')}><img className="navIcon" src={require('../../../../Images/Icons/leftArrow.svg')} alt="leftArrow"></img></Button><Button className="rightBtn" onClick={() => this.props.onNavClick('right')}><img className="navIcon" src={require('../../../../Images/Icons/rightArrow.svg')} alt="rightArrow"></img></Button></div>
+							<div className="row navRow"><Button className="downBtn" onClick={() => this.props.onNavClick('down')}><img className="navIcon" src={require('../../../../Images/Icons/downArrow.svg')} alt="downArrow"></img></Button></div>
 						</div>
 						<div className="container-fluid btnRowContainer">
 							<h5 className="btnRowTitle">Map Tilt: </h5>

@@ -138,29 +138,32 @@
 	.upBtn{
 		border-top-left-radius: 45%;
 		border-top-right-radius: 45%;
-		width: 25px;
-		height: 30px;
+		width: 35px;
+		height: 40px;
+		padding: 0;
 	}
 	.downBtn{
 		border-bottom-left-radius: 45%;
 		border-bottom-right-radius: 45%;
-		width: 25px;
-		height: 30px;
-		
+		width: 35px;
+		height: 40px;
+		padding: 0;
 	}
 	.leftBtn{
-		width: 30px;
-		height: 25px;
-		margin-right: 3px;
+		width: 40px;
+		height: 35px;
+		margin-right: 18px;
 		border-top-left-radius: 45%;
 		border-bottom-left-radius: 45%;
+		padding: 0;
 	}
 	.rightBtn{
-		width: 30px;
-		height: 25px;
-		margin-left: 3px;
+		width: 40px;
+		height: 35px;
+		margin-left: 18px;
 		border-top-right-radius: 45%;
 		border-bottom-right-radius: 45%;
+		padding: 0;
 	}
 
 	.navRow{
