@@ -41,7 +41,9 @@ class Lab1Screen extends Component {
             center: kthCoords,
             zoom: 10,
             mapTypeId: 'satellite',
-            disableDefaultUI: true
+						disableDefaultUI: true,
+						gestureHandling: 'none',
+						zoomControl: false
         });
         
         this.setState({ map: newMap })
@@ -141,13 +143,48 @@ class Lab1Screen extends Component {
         this.state.map.setZoom(12)
         this.state.map.setMapTypeId('hybrid')
 
-    }
+		}
+		
+		onNavClick = (direction) => {
+			let currentCenter = this.state.map.getCenter()
+			let curLng = currentCenter.lng()
+			let curLat = currentCenter.lat()
+			let newCenter = {coords: {latitude: curLat, longitude: curLng}}
+			let currentZoom = this.state.map.getZoom()
+			let moveDist = 0.01
+			console.log('curZoom: ', currentZoom)
+			if (currentZoom >= 18){
+				moveDist = 0.0001
+			}else if (17 >= currentZoom && currentZoom >= 15){
+				moveDist = 0.001
+			}else if (14 >= currentZoom && currentZoom >= 9){
+				moveDist = 0.01
+			}else if (8 >= currentZoom && currentZoom >= 5){
+				moveDist = 0.1
+			}else{
+				moveDist = 1
+			}
+			console.log('moveDist: ', moveDist)
+			if (direction==='up'){
+				newCenter.coords['latitude'] = (curLat + moveDist)
+				this.setLocation(newCenter)
+			}else if(direction === 'down'){
+				newCenter.coords['latitude'] = (curLat - moveDist)
+				this.setLocation(newCenter)
+			}else if(direction === 'left'){
+				newCenter.coords['longitude'] = (curLng - moveDist)
+				this.setLocation(newCenter)
+			}else{
+				newCenter.coords['longitude'] = (curLng + moveDist)
+				this.setLocation(newCenter)
+			}
+		}
 
     setLocation = (pos) => {
         let newLat = pos.coords.latitude;
         let newLong = pos.coords.longitude;
         let newCoords = {lat: newLat, lng: newLong}
-        this.state.map.setCenter(newCoords)
+        this.state.map.panTo(newCoords)
     }
 
     render() {
@@ -162,7 +199,8 @@ class Lab1Screen extends Component {
                 onAddMarkerClick={this.onAddMarkerClick}
                 onRemoveMarkerClick={this.onRemoveMarkerClick}
                 onGetLocationClick={this.onGetLocationClick}
-                onSetLocationClick={this.onSetLocationClick}/>
+                onSetLocationClick={this.onSetLocationClick}
+								onNavClick={this.onNavClick}/>
             </span>
         )
     }
