@@ -12,8 +12,8 @@ class TabBarNavigation extends Component {
 
     renderTabs = () => {
         return [
-            { tab: <Tab label='First Tab' icon="md-home" key={"ListTab"} />, content: <ListTabScreen title="hej" key={0} navigator={this.props.navigator} /> },
-            { tab: <Tab label='Second Tab' icon="md-settings" key={"AboutTab"} />, content: <AboutTabScreen key={1} navigator={this.props.navigator} /> }
+            { tab: <Tab label='Golfklubbar' icon="md-home" key={"ListTab"} />, content: <ListTabScreen title="hej" key={0} navigator={this.props.navigator} /> },
+            { tab: <Tab label='Om oss' icon="md-settings" key={"AboutTab"} />, content: <AboutTabScreen key={1} navigator={this.props.navigator} /> }
         ];
     }
 

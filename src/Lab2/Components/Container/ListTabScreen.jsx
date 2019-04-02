@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom";
-import { Page, Toolbar, Button } from 'react-onsenui';
+import { Page, Toolbar } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
+
 import ProductScreen from "./ProductScreen";
+import List from "../Presentational/List";
 
 class ListTabScreen extends Component {
 
@@ -21,10 +23,14 @@ class ListTabScreen extends Component {
             <Page renderToolbar={() =>
                 <Toolbar>
                     <div className="center">
-                        List Page
+                        Golfklubbar
                   </div>
                 </Toolbar>}>
-                <Button onClick={this.pushPage}>Product Page</Button>
+                <List pushPage={this.pushPage}></List>
+                <List pushPage={this.pushPage}></List>
+                <List pushPage={this.pushPage}></List>
+                <List pushPage={this.pushPage}></List>
+
             </Page>
         )
     }

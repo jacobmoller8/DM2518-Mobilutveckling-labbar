@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from "react-router-dom";
-import { Page, Toolbar } from 'react-onsenui';
+import { Page, Toolbar, Card, List, ListItem } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
@@ -13,10 +13,24 @@ class AboutTabScreen extends Component {
             <Page renderToolbar={() =>
                 <Toolbar>
                     <div className="center">
-                        About Page
+                        Om oss
                   </div>
                 </Toolbar>}>
-                <p>2</p>
+                <Card>
+                    <h1>Grupp X</h1>
+                </Card>
+                <List >
+                    <ListItem>
+                        Jacob Möller
+                    </ListItem>
+                    <ListItem>
+                        Hugo Bergqvist
+                    </ListItem>
+                    <ListItem>
+                        Björn Andersson
+                    </ListItem>
+
+                </List>
             </Page>
         )
     }
