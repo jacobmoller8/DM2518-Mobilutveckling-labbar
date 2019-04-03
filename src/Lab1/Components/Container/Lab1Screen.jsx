@@ -57,6 +57,10 @@ class Lab1Screen extends Component {
         })
     }
 
+    onBackClick = () => {
+        this.props.history.push('/')
+    }
+
     markFavoritePlaces = () => {
         // The information about our favorite places which will be added as pins to the map
         const hugoCoords = { lat: 55.676098, lng: 12.568337 }
@@ -304,6 +308,7 @@ class Lab1Screen extends Component {
         return (
             <span>
                 <Map
+                    onBackClick={this.onBackClick}
                     onMaptypeClick={this.onMaptypeClick}
                     onTiltClick={this.onTiltClick}
                     tiltVisibility={this.state.tiltVisibility}

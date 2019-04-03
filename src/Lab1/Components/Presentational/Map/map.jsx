@@ -16,10 +16,16 @@ export default class Map extends Component {
 		return (
 			<div className="container-fluid col-12 mapWrapper">
 				<div className="container-fluid header">
-					<div className="row justify-content-center">
-						<h3 id="headerTitle"> Our cool map</h3>
+					<div className="row">
+						<div className="container-fluid col-8 offset-2 offset-md-3 col-md-6 titleCont">
+							<h3 id="headerTitle"> Cool map</h3>
+						</div>
+						<div className="container-fluid col-2">
+							<Button className="backBtn" onClick={() => this.props.onBackClick()}>Back</Button>
+						</div>
 					</div>
 				</div>
+
 				<div className="row">
 					<div className="container-fluid mapContainer col-8 offset-md-2 col-md-8">
 						<div id="map"></div>
