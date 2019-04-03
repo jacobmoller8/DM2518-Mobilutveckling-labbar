@@ -101,7 +101,9 @@
     background-color: white;
     border-color: darkred;
     color: black;
-    font-weight: 500;
+    font-weight: 400;
+    height: 60px;
+    padding: 2px;
   }
 
   .markerBtn:hover{
@@ -113,7 +115,7 @@
     background-color: white;
     color: black;
     border-color:rgba(41,184,229,1);
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .locationBtn:hover{
