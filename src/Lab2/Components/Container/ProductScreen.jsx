@@ -5,10 +5,10 @@ import { Page, Toolbar, BackButton } from 'react-onsenui';
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
 
-
 class ProductScreen extends Component {
 
     render() {
+        const courseData = JSON.parse(localStorage.getItem('courseData'));
 
         return (
             <Page renderToolbar={() =>
@@ -17,11 +17,12 @@ class ProductScreen extends Component {
                         <BackButton modifier={this.props.modifier}>Back</BackButton>
                     </div>
                     <div className="center">
-                        Product Page
-                  </div>
+                        {courseData.title}
+                    </div>
                 </Toolbar>}>
-                <p>Hej</p>
-
+                <img src={courseData.course_picture} height="250px" width={window.innerWidth} alt={courseData.course_picture}></img>
+                <h1>{courseData.title}</h1>
+                <p>{courseData.description_long}</p>
             </Page>
         )
     }
