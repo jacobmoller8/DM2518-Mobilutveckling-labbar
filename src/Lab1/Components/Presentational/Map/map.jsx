@@ -21,7 +21,7 @@ export default class Map extends Component {
 					</div>
 				</div>
 				<div className="row">
-					<div className="container-fluid mapContainer col-8 col-md-10">
+					<div className="container-fluid mapContainer col-8 offset-md-2 col-md-8">
 						<div id="map"></div>
 					</div>
 					<div className="container-fluid sideBtnContainer col-4 col-md-2">
