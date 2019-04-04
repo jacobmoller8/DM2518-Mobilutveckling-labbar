@@ -1,0 +1,19 @@
+.toolbar {
+    background: #75DB3B; 
+}
+.icon {
+    color: rgb(0, 0, 0);
+}
+#toolbar-back-button {
+    fill: rgb(0, 0, 0);
+}
+.back-button__label {
+    color: rgb(0, 0, 0);
+}
+.group-card {
+    background-color: rgba(216, 255, 194, 0.952);
+}
+.list-item {
+    font-size: 20px;
+    font-style: italic;
+}

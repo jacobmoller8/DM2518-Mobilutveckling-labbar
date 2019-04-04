@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { Page, Toolbar, Icon, ToolbarButton } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
@@ -11,6 +11,7 @@ import AboutTabScreen from "./AboutTabScreen";
 import List from "../Presentational/List";
 
 import courses from "../../Data/Data";
+import "../../Styling/style.css";
 
 class ListTabScreen extends Component {
 
@@ -31,11 +32,20 @@ class ListTabScreen extends Component {
         return (
             <Page renderToolbar={() =>
                 <Toolbar>
+                    <div className="left">
+                        <Link to="/">
+                            <ToolbarButton>
+                                <Icon className="icon" size={{ default: 30 }}
+                                    icon={{ default: 'ion-ios-arrow-back' }}>
+                                </Icon>
+                            </ToolbarButton>
+                        </Link>
+                    </div>
                     <div className="center">
                         Golfklubbar
                   </div>
                     <div className="right">
-                        <ToolbarButton onClick={this.pushAboutPage}>
+                        <ToolbarButton className="icon" onClick={this.pushAboutPage}>
                             <Icon size={{ default: 30 }}
                                 icon={{ default: 'ion-ios-information-outline' }}>
                             </Icon>

@@ -4,6 +4,7 @@ import { Page, Toolbar, BackButton } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
+import "../../Styling/style.css";
 
 class ProductScreen extends Component {
 
@@ -14,7 +15,7 @@ class ProductScreen extends Component {
             <Page renderToolbar={() =>
                 <Toolbar modifier={this.props.modifier} >
                     <div className="left">
-                        <BackButton modifier={this.props.modifier}>Back</BackButton>
+                        <BackButton className="icon" modifier={this.props.modifier}>Back</BackButton>
                     </div>
                     <div className="center">
                         {courseData.title}

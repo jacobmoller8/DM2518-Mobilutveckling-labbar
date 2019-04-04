@@ -4,6 +4,7 @@ import { Page, Toolbar, Card, List, ListItem, BackButton } from 'react-onsenui';
 
 import 'onsenui/css/onsenui.css';
 import 'onsenui/css/onsen-css-components.css';
+import "../../Styling/style.css";
 
 class AboutTabScreen extends Component {
 
@@ -19,7 +20,7 @@ class AboutTabScreen extends Component {
                         Om oss
                   </div>
                 </Toolbar>}>
-                <Card>
+                <Card className="group-card">
                     <h1>Grupp X</h1>
                 </Card>
                 <List >
