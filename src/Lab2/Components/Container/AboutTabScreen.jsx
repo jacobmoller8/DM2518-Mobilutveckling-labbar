@@ -14,7 +14,7 @@ class AboutTabScreen extends Component {
             <Page renderToolbar={() =>
                 <Toolbar>
                     <div className="left">
-                        <BackButton modifier={this.props.modifier}>Back</BackButton>
+                        <BackButton>Back</BackButton>
                     </div>
                     <div className="center">
                         Om oss

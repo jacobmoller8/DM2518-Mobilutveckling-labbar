@@ -13,9 +13,9 @@ class ProductScreen extends Component {
 
         return (
             <Page renderToolbar={() =>
-                <Toolbar modifier={this.props.modifier} >
+                <Toolbar>
                     <div className="left">
-                        <BackButton className="icon" modifier={this.props.modifier}>Back</BackButton>
+                        <BackButton className="icon">Back</BackButton>
                     </div>
                     <div className="center">
                         {courseData.title}
