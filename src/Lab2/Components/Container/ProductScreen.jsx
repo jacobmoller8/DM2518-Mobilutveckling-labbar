@@ -9,7 +9,12 @@ import "../../Styling/style.css";
 class ProductScreen extends Component {
 
     render() {
-        const courseData = JSON.parse(localStorage.getItem('courseData'));
+				let courseData = ''
+				if(this.props.currentCourse){
+					courseData = this.props.currentCourse
+				}
+				else{
+        courseData = JSON.parse(localStorage.getItem('courseData'));}
 
         return (
             <Page renderToolbar={() =>
