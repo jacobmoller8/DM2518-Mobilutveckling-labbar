@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=yes,
+		initial-scale=1.0"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+
+    <title>Relaxation iBeacons</title>
+
+    <style>
+      @import "page.css";
+    </style>
+
+    <script>
+      // Redirect console if running from Evothings Workbench.
+      if (window.hyper) {
+        console.log = hyper.log;
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="my-page text-center" id="page-default">
+      <div class="my-header">
+        <img class="my-header-image" src="photos/queue.png" />
+        <img
+          class="my-icon-back"
+          src="icon-back.png"
+          ontouchend="history.back()"
+        />
+      </div>
+      <div class="my-content">
+        <h1>queue.</h1>
+        <p>enter a room to enter the queue.</p>
+        <form id="user-info" class="text-center">
+          <div class="form-row">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-lg"
+                name="name"
+                placeholder="name"
+              />
+            </div>
+          </div>
+          <br />
+          <div class="form-row">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control-lg"
+                name="what"
+                placeholder="what"
+              />
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="my-page text-center" id="spelhallen">
+      <div class="my-header text-center">
+        <img
+          class="my-header-image"
+          src="photos/photo-queue.png"
+          id="spelhallenPhoto"
+        />
+        <img
+          class="my-icon-back"
+          src="icon-back.png"
+          ontouchend="history.back()"
+        />
+      </div>
+      <div class="my-content text-center">
+        <h1>spelhallen.</h1>
+        <div id="spelhallen-queue">
+          <ul id="spelhallen-list" class="text-center"></ul>
+        </div>
+        <br />
+      </div>
+    </div>
+
+    <div class="my-page text-center" id="musiksalen">
+      <div class="my-header text-center">
+        <img
+          class="my-header-image"
+          src="photos/musiksalen.png"
+          id="musiksalenPhoto"
+        />
+        <img
+          class="my-icon-back"
+          src="icon-back.png"
+          ontouchend="history.back()"
+        />
+      </div>
+      <div class="my-content text-center">
+        <h1>musiksalen.</h1>
+        <div id="musiksalen-queue">
+          <ul id="musiksalen-list" class="text-center"></ul>
+        </div>
+        <br />
+      </div>
+    </div>
+
+    <div class="my-page text-center" id="konsthallen">
+      <div class="my-header">
+        <img
+          class="my-header-image"
+          src="photos/konsthallen.png"
+          id="konsthallenPhoto"
+        />
+        <img
+          class="my-icon-back"
+          src="icon-back.png"
+          ontouchend="history.back()"
+        />
+      </div>
+      <div class="my-content text-center">
+        <h1>konsthallen.</h1>
+        <div id="konsthallen-queue">
+          <ul id="konsthallen-list" class="text-center"></ul>
+        </div>
+        <br />
+      </div>
+    </div>
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyA-wXY5Meygl37IxSIVgnaJhG59XpHgXl8",
+        authDomain: "dm2518-labs.firebaseapp.com",
+        databaseURL: "https://dm2518-labs.firebaseio.com",
+        projectId: "dm2518-labs",
+        storageBucket: "dm2518-labs.appspot.com",
+        messagingSenderId: "354340359130"
+      };
+      firebase.initializeApp(config);
+      const db = firebase.firestore();
+    </script>
+
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="lib/jquery.js"></script>
+    <script src="cordova.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
