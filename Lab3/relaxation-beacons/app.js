@@ -237,7 +237,7 @@ function refreshSpelhallen() {
 }
 
 function refreshMusiksalen() {
-  smusiksalenList.innerHTML = "";
+  musiksalenList.innerHTML = "";
   db.collection("musiksalen")
     .orderBy("when")
     .get()
@@ -250,7 +250,7 @@ function refreshMusiksalen() {
 }
 
 function refreshKonsthallen() {
-  smusiksalenList.innerHTML = "";
+  konsthallenList.innerHTML = "";
   db.collection("konsthallen")
     .orderBy("when")
     .get()
