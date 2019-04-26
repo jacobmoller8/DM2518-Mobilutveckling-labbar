@@ -48,7 +48,7 @@ class MainScreen extends Component {
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/">
+                                <Link to="/Lab4Chat">
                                     <Button className="Btn"> View Lab 4 </Button>
                                 </Link>
                             </div>
