@@ -18,25 +18,6 @@ export default class MainChat extends Component {
 		this.pubnub.init(this);
 	}
 
-	deviceOrientationListener = (event) => {
-		var alpha = event.alpha; //z axis rotation [0,360)
-		var beta = event.beta; //x axis rotation [-180, 180]
-		var gamma = event.gamma; //y axis rotation [-90, 90]
-		var heading = alpha
-
-
-		//Check if absolute values have been sent
-		if (typeof event.webkitCompassHeading !== "undefined") {
-			alpha = event.webkitCompassHeading; //for iOS devices
-			heading = alpha
-			document.getElementById("heading").innerHTML = heading.toFixed([0]);
-		}
-		else {
-			alert("Your device is reporting relative alpha values, so this compass won't point north :(");
-			heading = 360 - alpha; //heading [0, 360)
-			document.getElementById("heading").innerHTML = heading.toFixed([0]);
-		}
-	}
 
 	onTextInput = (value) => {
 		this.setState({ currentMsg: value })
