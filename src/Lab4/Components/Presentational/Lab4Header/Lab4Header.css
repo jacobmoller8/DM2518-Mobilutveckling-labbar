@@ -1,0 +1,9 @@
+.Lab4Header{
+	text-align: center;
+	padding: 20px;
+	padding-bottom: 5px;
+	margin-bottom: 40px;
+	border-bottom: solid;
+	border-color: black;
+	border-radius: 15px;
+}

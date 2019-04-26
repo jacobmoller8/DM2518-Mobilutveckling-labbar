@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import PubNubReact from 'pubnub-react';
+import Lab4Header from '../Presentational/Lab4Header/Lab4Header'
 import TextInput from '../Presentational/TextInput/TextInput'
-import Button from '@material-ui/core/Button';
+import Conversation from '../Presentational/Conversation/Conversation'
 
 export default class MainChat extends Component {
 	constructor(props) {
@@ -11,7 +12,7 @@ export default class MainChat extends Component {
 			subscribeKey: 'sub-c-67620ffc-67ff-11e9-a1d6-2a8c316da507'
 		});
 
-		this.state ={
+		this.state = {
 			currentMsg: ''
 		}
 		this.pubnub.init(this);
@@ -42,13 +43,13 @@ export default class MainChat extends Component {
 	}
 
 	onSendMsg = () => {
-			this.pubnub.publish({
-				message: this.state.currentMsg,
-				channel: 'channel1'
-			});
-			this.setState({ currentMsg: '' })
-		}
-	
+		this.pubnub.publish({
+			message: { text: this.state.currentMsg, name: 'hugge' },
+			channel: 'channel1'
+		});
+		this.setState({ currentMsg: '' })
+	}
+
 
 	componentWillMount() {
 		this.pubnub.subscribe({
@@ -56,17 +57,6 @@ export default class MainChat extends Component {
 			withPresence: true
 		});
 
-		this.pubnub.getMessage('channel1', (msg) => {
-			console.log(msg);
-		});
-
-
-		this.pubnub.getStatus((st) => {
-			this.pubnub.publish({
-				message: 'hello world from react',
-				channel: 'channel1'
-			});
-		});
 	}
 
 	componentWillUnmount() {
@@ -77,23 +67,19 @@ export default class MainChat extends Component {
 
 	render() {
 		let btnDisable = true
-		if (this.state.currentMsg !== ""){
+		if (this.state.currentMsg !== "") {
 			btnDisable = false
 		}
 
 		const messages = this.pubnub.getMessage('channel1');
 		return (
 			<div>
-				<h3>PUBNUB CHAT</h3>
+				<Lab4Header/>
+				<div className="row">
+					<TextInput onTextInput={this.onTextInput} curVal={this.state.currentMsg} btnDisable={btnDisable} onSendMsg={this.onSendMsg} />
+					<Conversation messages={messages} />
+				</div>
 
-				<TextInput onTextInput={this.onTextInput} curVal={this.state.currentMsg} />
-				<Button disabled={btnDisable} variant="outlined" onClick={() => this.onSendMsg()}>Send Message</Button>
-				<p>Messages:</p>
-					<ul>
-						{messages.map((m, index) => <li key={'message' + index}>{m.message}</li>)}
-					</ul>
-				
-				<p id="heading"></p>
 			</div>
 		);
 	}
