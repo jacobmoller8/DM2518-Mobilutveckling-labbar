@@ -18,11 +18,12 @@ export default class MainChat extends Component {
 		this.pubnub.init(this);
 	}
 
-
+	// Denna har jag skrivit
 	onTextInput = (value) => {
 		this.setState({ currentMsg: value })
 	}
 
+	// och denna
 	onSendMsg = () => {
 		this.pubnub.publish({
 			message: { text: this.state.currentMsg, name: 'hugge' },
@@ -31,7 +32,7 @@ export default class MainChat extends Component {
 		this.setState({ currentMsg: '' })
 	}
 
-
+	// kommer från pubnubs hemsida
 	componentWillMount() {
 		this.pubnub.subscribe({
 			channels: ['channel1'],
@@ -40,6 +41,7 @@ export default class MainChat extends Component {
 
 	}
 
+	// kommer från pubnubs hemsida
 	componentWillUnmount() {
 		this.pubnub.unsubscribe({
 			channels: ['channel1']
