@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import { withRouter, Link } from "react-router-dom";
 import PubNubReact from 'pubnub-react';
 import Lab4Header from '../Presentational/Lab4Header/Lab4Header'
 import TextInput from '../Presentational/TextInput/TextInput'
 import Conversation from '../Presentational/Conversation/Conversation'
+import Button from '@material-ui/core/Button';
 
-export default class MainChat extends Component {
+class MainChat extends Component {
 	constructor(props) {
 		super(props);
 		this.pubnub = new PubNubReact({
@@ -29,7 +31,7 @@ export default class MainChat extends Component {
 		let direction = this.state.currentDirection
 
 		this.pubnub.publish({
-			message: { text: this.state.currentMsg, name: 'hugge' },
+			message: { text: this.state.currentMsg, name: 'Admin' },
 			channel: direction
 		});
 		this.setState({ currentMsg: ''})
@@ -68,6 +70,7 @@ export default class MainChat extends Component {
 
 		return (
 			<div>
+				<Link to='/'><Button variant='outlined'>Back</Button></Link>
 				<Lab4Header/>
 				<div className="row">
 					<TextInput 
@@ -89,3 +92,5 @@ export default class MainChat extends Component {
 		);
 	}
 }
+
+export default withRouter(MainChat);

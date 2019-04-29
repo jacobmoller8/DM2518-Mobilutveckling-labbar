@@ -48,8 +48,13 @@ class MainScreen extends Component {
                                 </Link>
                             </div>
                             <div>
-                                <Link to="/Lab4Chat">
-                                    <Button className="Btn"> View Lab 4 </Button>
+                                <Link to="/Lab4Overview">
+                                    <Button className="Btn"> View Lab 4 Overview</Button>
+                                </Link>
+                            </div>
+														<div>
+                                <Link to="/Lab4Mobile">
+                                    <Button className="Btn"> View Lab 4 Mobile </Button>
                                 </Link>
                             </div>
                             <div>

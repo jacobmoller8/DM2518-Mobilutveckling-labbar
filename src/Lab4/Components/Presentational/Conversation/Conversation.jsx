@@ -3,7 +3,7 @@ import './Conversation.css'
 
 export default function Conversation(props) {
 	return (
-		<div className="container-fluid col-4 conversation">
+		<div className="container-fluid col-11 col-md-4 conversation">
 			<h5>Messages North:</h5>
 			{props.northMsg.map((m, index) => <p key={'message' + index}>{m.message.name + ': ' + m.message.text}</p>)}
 			<hr/>

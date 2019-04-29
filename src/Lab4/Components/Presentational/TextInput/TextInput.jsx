@@ -6,7 +6,7 @@ import './TextInput.css'
 export default function TextInput(props) {
 
 	return (
-		<div className="container-fluid col-4 textInput">
+		<div className="container-fluid col-11 col-md-4 textInput">
 			<div className="container-fluid btnRowCntainer">
 				<p>Select in which direction to send message:</p>
 				<Button variant="outlined" size="small" onClick={() => props.onSetDirection('north')}>North</Button>
@@ -24,6 +24,7 @@ export default function TextInput(props) {
 						placeholder="Ex: Hi there!"
 						multiline
 						margin="normal"
+						fullWidth
 					/>
 				</div>
 			</div>
