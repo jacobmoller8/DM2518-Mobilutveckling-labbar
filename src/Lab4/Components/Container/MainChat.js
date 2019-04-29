@@ -69,7 +69,7 @@ class MainChat extends Component {
 		const eastMsg = this.pubnub.getMessage('east');
 
 		return (
-			<div>
+			<div className="container-fluid col-12">
 				<Link to='/'><Button variant='outlined'>Back</Button></Link>
 				<Lab4Header/>
 				<div className="row">

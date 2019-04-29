@@ -102,7 +102,7 @@ class MainScreenMobile extends Component {
 
 		let curMsg = this.pubnub.getMessage(curDirection);
 		return (
-			<div>
+			<div className="container-fluid col-12">
 				<Link to='/'><Button variant='outlined'>Back</Button></Link>
 				<div className="row">
 					<ChatBox
