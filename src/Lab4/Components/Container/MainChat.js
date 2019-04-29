@@ -78,8 +78,9 @@ class MainChat extends Component {
 					onSetDirection={this.onSetDirection}
 					onTextInput={this.onTextInput} 
 					curVal={this.state.currentMsg} 
+					onSendMsg={this.onSendMsg}
 					btnDisable={btnDisable} 
-					onSendMsg={this.onSendMsg} />
+					 />
 
 					<Conversation 
 					northMsg={northMsg} 
