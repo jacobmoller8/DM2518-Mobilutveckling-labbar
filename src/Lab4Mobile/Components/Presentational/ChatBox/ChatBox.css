@@ -1,3 +1,17 @@
 .textFieldcontainer{
 	text-align: left;
 }
+
+.mobileTextInput{
+	margin-top: 20px;
+	text-align: center;
+	border: solid;
+	border-width: 3px;
+	border-color: rgb(250, 145, 75);
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	padding-bottom: 15px;
+	padding-top: 5px;
+	box-shadow: 10px 10px 5px 0px rgba(116, 116, 116, 0.75);
+	margin-bottom: 10px;
+}

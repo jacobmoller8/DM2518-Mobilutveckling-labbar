@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import PubNubReact from 'pubnub-react';
+import { withRouter, Link } from "react-router-dom";
 import ChatBox from '../Presentational/ChatBox/ChatBox'
 import MessageBox from '../Presentational/MessageBox/MessageBox'
+import Button from '@material-ui/core/Button';
 
-export default class MainScreenMobile extends Component {
+class MainScreenMobile extends Component {
 	constructor(props) {
 		super(props);
 		this.pubnub = new PubNubReact({
@@ -100,18 +102,21 @@ export default class MainScreenMobile extends Component {
 
 		let curMsg = this.pubnub.getMessage(curDirection);
 		return (
-
-			<div className="row">
-				<ChatBox
-					curDirection={curDirection}
-					btnDisable={btnDisable}
-					onTextInput={this.onTextInput}
-					onNameInput={this.onNameInput}
-					curName={this.state.name}
-					curVal={this.state.currentMsg}
-					onSendMsg={this.onSendMsg} />
-				<MessageBox curMsg={curMsg} curDirection={curDirection}/>
+			<div>
+				<Link to='/'><Button variant='outlined'>Back</Button></Link>
+				<div className="row">
+					<ChatBox
+						curDirection={curDirection}
+						btnDisable={btnDisable}
+						onTextInput={this.onTextInput}
+						onNameInput={this.onNameInput}
+						curName={this.state.name}
+						curVal={this.state.currentMsg}
+						onSendMsg={this.onSendMsg} />
+					<MessageBox curMsg={curMsg} curDirection={curDirection} />
+				</div>
 			</div>
 		)
 	}
 }
+export default withRouter(MainScreenMobile);

@@ -5,7 +5,7 @@ import './ChatBox.css'
 
 export default function ChatBox(props) {
 	return (
-		<div className="container-fluid col-11 col-md-4 textInput">
+		<div className="container-fluid col-11 col-md-4 mobileTextInput">
 
 			<div className="row">
 				<div className="container-fluid textFieldcontainer">

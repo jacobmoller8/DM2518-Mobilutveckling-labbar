@@ -1,0 +1,11 @@
+.mobileConversation{
+	margin-top: 20px;
+	border: solid;
+	border-width: 3px;
+	border-color: rgb(163, 95, 184);
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	padding: 15px;
+	box-shadow: 10px 10px 5px 0px rgba(116, 116, 116, 0.75);
+	margin-bottom: 10px;
+}
