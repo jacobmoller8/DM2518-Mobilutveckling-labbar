@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PubNubReact from 'pubnub-react';
 import ChatBox from '../Presentational/ChatBox/ChatBox'
 import MessageBox from '../Presentational/MessageBox/MessageBox'
-import Button from '@material-ui/core/Button';
 
 export default class MainScreenMobile extends Component {
 	constructor(props) {
