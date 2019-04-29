@@ -9,3 +9,9 @@
 	padding-top: 5px;
 	box-shadow: 10px 10px 5px 0px rgba(116, 116, 116, 0.75);
 }
+
+.btnRowCntainer{
+	border: dashed;
+	border-color: rgb(250, 145, 75);
+	border-width: 2px;
+}

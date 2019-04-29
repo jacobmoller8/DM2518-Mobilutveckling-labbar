@@ -13,7 +13,8 @@ export default class MainChat extends Component {
 		});
 
 		this.state = {
-			currentMsg: ''
+			currentMsg: '',
+			currentDirection: 'north' 
 		}
 		this.pubnub.init(this);
 	}
@@ -25,17 +26,23 @@ export default class MainChat extends Component {
 
 	// och denna
 	onSendMsg = () => {
+		let direction = this.state.currentDirection
+
 		this.pubnub.publish({
 			message: { text: this.state.currentMsg, name: 'hugge' },
-			channel: 'channel1'
+			channel: direction
 		});
-		this.setState({ currentMsg: '' })
+		this.setState({ currentMsg: ''})
+	}
+
+	onSetDirection = (direction) => {
+		this.setState({currentDirection: direction})
 	}
 
 	// kommer från pubnubs hemsida
 	componentWillMount() {
 		this.pubnub.subscribe({
-			channels: ['channel1'],
+			channels: ['north', 'south', 'west', 'east'],
 			withPresence: true
 		});
 
@@ -44,7 +51,7 @@ export default class MainChat extends Component {
 	// kommer från pubnubs hemsida
 	componentWillUnmount() {
 		this.pubnub.unsubscribe({
-			channels: ['channel1']
+			channels: ['north', 'south', 'west', 'east']
 		});
 	}
 
@@ -54,13 +61,28 @@ export default class MainChat extends Component {
 			btnDisable = false
 		}
 
-		const messages = this.pubnub.getMessage('channel1');
+		const northMsg = this.pubnub.getMessage('north');
+		const southMsg = this.pubnub.getMessage('south');
+		const westMsg = this.pubnub.getMessage('west');
+		const eastMsg = this.pubnub.getMessage('east');
+
 		return (
 			<div>
 				<Lab4Header/>
 				<div className="row">
-					<TextInput onTextInput={this.onTextInput} curVal={this.state.currentMsg} btnDisable={btnDisable} onSendMsg={this.onSendMsg} />
-					<Conversation messages={messages} />
+					<TextInput 
+					currentDirection={this.state.currentDirection} 
+					onSetDirection={this.onSetDirection}
+					onTextInput={this.onTextInput} 
+					curVal={this.state.currentMsg} 
+					btnDisable={btnDisable} 
+					onSendMsg={this.onSendMsg} />
+
+					<Conversation 
+					northMsg={northMsg} 
+					southMsg={southMsg} 
+					westMsg={westMsg} 
+					eastMsg={eastMsg} />
 				</div>
 
 			</div>
